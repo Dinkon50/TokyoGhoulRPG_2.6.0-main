@@ -90,7 +90,7 @@ public final class GhoulBossArena {
         }
         for (int dx = -10; dx <= 10; dx += 5) for (int dz = -10; dz <= 10; dz += 5) {
             if (Math.abs(dx) == 10 || Math.abs(dz) == 10) {
-                level.setBlock(c.offset(dx, 1, dz), Blocks.POLISHED_BLACKSTONE_PILLAR.defaultBlockState(), 3);
+                level.setBlock(c.offset(dx, 1, dz), Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState()
                 level.setBlock(c.offset(dx, 2, dz), Blocks.SOUL_LANTERN.defaultBlockState(), 3);
             }
         }
@@ -102,7 +102,7 @@ public final class GhoulBossArena {
         java.util.ArrayList<BlockPos> spots = new java.util.ArrayList<>();
         int[][] candidates = {{-8,-7},{8,-6},{-7,7},{7,8},{0,-9},{-9,0},{9,1},{1,9},{-5,-9},{6,-9},{-9,5},{9,6}};
         java.util.ArrayList<int[]> shuffled = new java.util.ArrayList<>(java.util.Arrays.asList(candidates));
-        java.util.Collections.shuffle(shuffled, level.random);
+        java.util.Collections.shuffle(shuffled, new java.util.Random(level.random.nextLong()));
 
         // Five chests, but never closer than 3 blocks to one another.
         for (int[] v : shuffled) {
