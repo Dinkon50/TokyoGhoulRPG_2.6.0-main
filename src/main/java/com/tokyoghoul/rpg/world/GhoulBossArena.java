@@ -90,7 +90,7 @@ public final class GhoulBossArena {
         }
         for (int dx = -10; dx <= 10; dx += 5) for (int dz = -10; dz <= 10; dz += 5) {
             if (Math.abs(dx) == 10 || Math.abs(dz) == 10) {
-                level.setBlock(c.offset(dx, 1, dz), Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState()
+                level.setBlock(c.offset(dx, 1, dz), Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 3);
                 level.setBlock(c.offset(dx, 2, dz), Blocks.SOUL_LANTERN.defaultBlockState(), 3);
             }
         }
