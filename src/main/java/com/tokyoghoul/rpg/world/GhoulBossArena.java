@@ -26,8 +26,7 @@ public final class GhoulBossArena {
     private GhoulBossArena() {}
 
     private static BossArenaData data(ServerLevel level) {
-        return level.getDataStorage().computeIfAbsent(
-            new net.minecraft.world.level.saveddata.SavedData.Factory<>(BossArenaData::new, BossArenaData::load, null), DATA_ID);
+        return level.getDataStorage().computeIfAbsent(BossArenaData::load, BossArenaData::new, DATA_ID);
     }
 
     public static void tick(ServerLevel level) {

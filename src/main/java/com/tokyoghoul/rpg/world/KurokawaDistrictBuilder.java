@@ -35,8 +35,8 @@ public final class KurokawaDistrictBuilder {
 
         // A narrow neon-like alley.
         for (int z = -5; z <= 8; z++) {
-            level.setBlock(origin.offset(0, 1, z), Blocks.POLISHED_BLACKSTONE, 3);
-            if (z % 2 == 0) level.setBlock(origin.offset(-1, 3, z), Blocks.REDSTONE_LAMP, 3);
+            level.setBlock(origin.offset(0, 1, z), Blocks.POLISHED_BLACKSTONE.defaultBlockState(), 3);
+            if (z % 2 == 0) level.setBlock(origin.offset(-1, 3, z), Blocks.REDSTONE_LAMP.defaultBlockState(), 3);
         }
 
         spawnGhoul(level, origin.offset(9, 1, -5), "refuge");
@@ -51,7 +51,7 @@ public final class KurokawaDistrictBuilder {
 
     private static void building(ServerLevel level, BlockPos base, int w, int d, int h, net.minecraft.world.level.block.Block wall, net.minecraft.world.level.block.Block trim) {
         for (int x = 0; x < w; x++) for (int z = 0; z < d; z++) {
-            level.setBlock(base.offset(x, 0, z), Blocks.POLISHED_DEEPSLATE, 3);
+            level.setBlock(base.offset(x, 0, z), Blocks.POLISHED_DEEPSLATE.defaultBlockState(), 3);
             for (int y = 1; y <= h; y++) {
                 boolean edge = x == 0 || z == 0 || x == w - 1 || z == d - 1;
                 if (edge) level.setBlock(base.offset(x, y, z), y == h ? trim.defaultBlockState() : wall.defaultBlockState(), 3);
